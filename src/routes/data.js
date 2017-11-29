@@ -16,6 +16,7 @@ const makeTable = client => new Promise((resolve, reject) => client.query('CREAT
 export default (makePost = false) => {
   const router = Router();
   router.get('/', async (req, res, next) => {
+    console.log("DATABASE_URL", process.env.DATABASE_URL);
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
       ssl: true,

@@ -19,7 +19,7 @@ You would post this:
 [[[70, 3], [270000]], [[80, 2], [510000]], [[90, 1], [980000]]]
 ```
 
-Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&o=1` where `n` is the number of rows you want and `o` is the offset.
+Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
 
 ## After deployment
 The default deployment above creates a Heroku app with a default Meeshkan key called `you-should-never-use-this-for-any-serious-deployment`. As the name suggests, you should never use this for any serious deployment.  Instead, you should generate your keys from [https://app.meeshkan.com](https://app.meeshkan.com) when you schedule your ML job.

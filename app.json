@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/meeshkan/serve-machine-learning-data",
+  "logo": "https://s3-eu-west-1.amazonaws.com/meeshkan-public-assets/iconMem.png",
+  "keywords": ["meeshkan", "node", "express", "heroku"],
+  "scripts": {
+    "postdeploy": "npm run build && npm run bootstrap"
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ]
+}

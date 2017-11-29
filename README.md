@@ -9,9 +9,9 @@ Assuming that you call your app `resonant-dunes`, you can populate the dataset b
 
 | m2        | beach km      | price     |
 | --------- |:-------------:| ---------:|
-| 70        | 3             | € 270 000 |
-| 80        | 2             | € 510 000 |
-| 90        | 1             | € 980 000 |
+| 70        | 3             | 270 000 € |
+| 80        | 2             | 510 000 € |
+| 90        | 1             | 980 000 € |
 
 You would post this:
 

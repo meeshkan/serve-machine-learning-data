@@ -24,8 +24,8 @@ Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&
 ## After deployment
 The default deployment above creates a Heroku app with a default Meeshkan key called `you-should-never-use-this-for-any-serious-deployment`. As the name suggests, you should never use this for any serious deployment.  Instead, you should generate your keys from [https://app.meeshkan.com](https://app.meeshkan.com) when you schedule your ML job.
 
-To see a working example, check out [https://meeshkan-mnist.herokuapp.com](https://meeshkan-mnist.herokuapp.com).  We've uploaded 60,000 samples from the MNIST dataset to this endpoint.  Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
+Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
 
 For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.  But this is a great tool to play with ideas.
 
-You can also check out the same repo for AWS Elastic Beanstalk if you are an AWS kinda girl or guy.
+If you want to deploy this to AWS Elastic Beanstalk, you can follow [this guide](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html). To see a working example that uses the MNIST dataset, try `curl "https://mnist.meeshkan.io?n=22&o=101"`.

@@ -4,9 +4,6 @@
   "repository": "https://github.com/meeshkan/serve-machine-learning-data",
   "logo": "https://s3-eu-west-1.amazonaws.com/meeshkan-public-assets/iconMem.png",
   "keywords": ["meeshkan", "node", "express", "heroku"],
-  "env": {
-    "MEESHKAN_KEY": "you-should-never-use-this-for-any-serious-deployment",
-  },
   "addons": [
     {
       "plan": "heroku-postgresql",

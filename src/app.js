@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/', data(false));
-app.use(`/${process.env.MEESHKAN_KEY}`, data(true));
+app.use(`/${process.env.MEESHKAN_KEY || "you-should-never-use-this-for-any-serious-deployment"}`, data(true));
 
 export default app;
 

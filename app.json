@@ -7,6 +7,9 @@
   "scripts": {
     "postdeploy": "npm run build && npm run bootstrap"
   },
+  "env": {
+    "MEESHKAN_KEY": "you-should-never-use-this-for-any-serious-deployment",
+  },
   "addons": [
     {
       "plan": "heroku-postgresql",

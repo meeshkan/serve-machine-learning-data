@@ -1,4 +1,6 @@
 {
+  "name": "serve-machine-learning-data",
+  "description": "A simple server for machine learning data",
   "repository": "https://github.com/meeshkan/serve-machine-learning-data",
   "logo": "https://s3-eu-west-1.amazonaws.com/meeshkan-public-assets/iconMem.png",
   "keywords": ["meeshkan", "node", "express", "heroku"],

@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "build": "babel src -d dist",
-    "bootstrap": "node ./dist/bootstrap.js",
     "start": "node ./bin/www"
   },
   "dependencies": {

@@ -24,7 +24,7 @@ export default (makePost = false) => {
     try {
       client.connect();
       await makeTable(client);
-      await new Promise((resolve, reject) => client.query('SELECT data FROM data_to_serve ORDER BY id ASC LIMIT $1 OFFSET $2;', [req.params.n, req.params.o], (err, sqlRes) => {
+      await new Promise((resolve, reject) => client.query('SELECT data FROM data_to_serve ORDER BY id ASC LIMIT $1 OFFSET $2;', [req.query.n, req.query.o], (err, sqlRes) => {
         if (err) {
           reject(err);
           return;

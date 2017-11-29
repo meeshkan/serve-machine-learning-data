@@ -14,8 +14,10 @@ const makeTabke = client => new Promise((resolve, reject) => client.query('CREAT
 }));
 
 export default (makePost = false) => {
+  console.log("making route");
   const router = Router();
   router.get('/', async (req, res, next) => {
+    console.log("connecting to", process.env.DATABASE_URL);
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
       ssl: true,
@@ -32,6 +34,7 @@ export default (makePost = false) => {
         resolve(true);
       }));
     } catch (e) {
+      console.log("error", e);
       res.status(500).send('Server error');
     }
     client.end();
@@ -54,6 +57,7 @@ export default (makePost = false) => {
           resolve(true);
         }));
       } catch (e) {
+        console.log("error", e);
         res.status(500).send('Server error');
       }
       client.end();

@@ -4,7 +4,7 @@ A simple heroku app to serve your machine learning data to Meeshkan.
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/meeshkan/serve-machine-learning-data)
 
 ## How to use this
-Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending a `POST` request to `http://resonant-dunes.herokuapp.com/your-meeshkan-key` containing your data.  `your-meeshkan-key` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
+Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending a `POST` request to `http://resonant-dunes.herokuapp.com/MEESHKAN_KEY` containing your data.  `MEESHKAN_KEY` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
 
 
 | m2        | beach km      | price     |

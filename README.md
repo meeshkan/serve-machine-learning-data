@@ -26,6 +26,6 @@ The default deployment above creates a Heroku app with a default Meeshkan key ca
 
 Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
 
-For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.  But this is a great tool to play with ideas.
+For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.
 
 If you want to deploy this to AWS Elastic Beanstalk, you can follow [this guide](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html). To see a working example that uses the MNIST dataset, try `curl "https://mnist.meeshkan.io?n=22&o=101"`.

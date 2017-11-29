@@ -16,7 +16,7 @@ Assuming that heroku gives your app a URL `https://resonant-dunes-421424.herokua
 You would post this:
 
 ```
-[ [[70,3],[270000]], [[80,2],[510000]], [[90,1],[980000]] ]
+[ [[70, 3],[270000]], [[80, 2],[510000]], [[90, 1],[980000]] ]
 ```
 
 Then, to get the data back, just ping `https://resonant-dunes-421424.herokuapp.com?n=5&o=1` where `n` is the number of rows you want and `o` is the offset.

@@ -24,7 +24,7 @@ Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&
 ## After deployment
 The default deployment above creates a Heroku app with a default Meeshkan key called `you-should-never-use-this-for-any-serious-deployment`. As the name suggests, you should never use this for any serious deployment.  Instead, you should generate your keys from [https://app.meeshkan.com](https://app.meeshkan.com) when you schedule your ML job.
 
-Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
+Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means that, if you're serving from Heroku, you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
 
 For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.
 

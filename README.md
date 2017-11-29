@@ -22,7 +22,7 @@ You would post this:
 Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
 
 ## After deployment
-The default deployment above creates a Heroku app with a default Meeshkan key called `you-should-never-use-this-for-any-serious-deployment`. As the name suggests, you should never use this for any serious deployment.  Instead, you should generate your keys from [https://app.meeshkan.com](https://app.meeshkan.com) when you schedule your ML job.
+The default deployment above creates a Heroku app with a default Meeshkan key called `you-should-never-use-this-for-any-serious-deployment`. As the name suggests, you should never use this for any serious deployment.  Instead, you should generate your keys from [https://app.meeshkan.com](https://app.meeshkan.com) when you schedule your ML job.  Meeshkan allows you to serve from whatever webhook you'd like, but this tool is meant to help you explore ideas on Meeshkan fast.
 
 Note that to use the Meeshkan service, you *must* serve your data using HTTPS.  This means you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
 

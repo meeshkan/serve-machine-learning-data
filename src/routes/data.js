@@ -25,6 +25,7 @@ const makeGet = async (req, res, next) => {
       id
     } = req.params || {};
     await makeTable(client);
+    console.log("SELECT", `SELECT id, data, tag FROM data_to_serve ${(tag && id) ? 'WHERE tag = $3 AND id = $4' : tag ? 'WHERE tag = $3' : ''} ORDER BY id ASC LIMIT $1 OFFSET $2;`, [req.query.n, req.query.o, ...[tag, id].filter(_=>_)]);
     await new Promise((resolve, reject) => client.query(`SELECT id, data, tag FROM data_to_serve ${(tag && id) ? 'WHERE tag = $3 AND id = $4' : tag ? 'WHERE tag = $3' : ''} ORDER BY id ASC LIMIT $1 OFFSET $2;`, [req.query.n, req.query.o, ...[tag, id].filter(_=>_)], (err, sqlRes) => {
       if (err) {
         reject(err);
@@ -52,6 +53,7 @@ const makeDelete = async (req, res, next) => {
       id
     } = req.params || {};
     await makeTable(client);
+    console.log("DELETE", `DELETE FROM data_to_serve ${(tag && id) ? 'WHERE tag = $1 AND id = $2' : tag ? 'WHERE tag = $1' : ''};`, [tag, id].filter(_=>_));
     await new Promise((resolve, reject) => client.query(`DELETE FROM data_to_serve ${(tag && id) ? 'WHERE tag = $1 AND id = $2' : tag ? 'WHERE tag = $1' : ''};`, [tag, id].filter(_=>_), (err, sqlRes) => {
       if (err) {
         reject(err);
@@ -75,6 +77,7 @@ const makePost = async (req, res, next) => {
     client.connect();
     const tag = req.params && req.params.tag || 'DEFAULT';
     await makeTable(client);
+    console.log("POST", `INSERT INTO data_to_serve (data, tag) VALUES ${req.body.map((_, i) => `($${i+1}', $'${req.body.length + 1}) `).join(',')};`, [...req.body.map(row => JSON.stringify(row)), tag]);
     await new Promise((resolve, reject) => client.query(`INSERT INTO data_to_serve (data, tag) VALUES ${req.body.map((_, i) => `($${i+1}', $'${req.body.length + 1}) `).join(',')};`, [...req.body.map(row => JSON.stringify(row)), tag], (err, sqlRes) => {
       if (err) {
         reject(err);

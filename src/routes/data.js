@@ -78,7 +78,7 @@ const makePost = async (req, res, next) => {
     const tag = req.params && req.params.tag || 'DEFAULT';
     await makeTable(client);
     console.log("POST", `INSERT INTO data_to_serve (data, tag) VALUES ${req.body.map((_, i) => `($${i+1}, $${req.body.length + 1}) `).join(',')};`, [...req.body.map(row => JSON.stringify(row)), tag]);
-    await new Promise((resolve, reject) => client.query(`INSERT INTO data_to_serve (data, tag) VALUES ${req.body.map((_, i) => `($${i+1}', $'${req.body.length + 1}) `).join(',')};`, [...req.body.map(row => JSON.stringify(row)), tag], (err, sqlRes) => {
+    await new Promise((resolve, reject) => client.query(`INSERT INTO data_to_serve (data, tag) VALUES ${req.body.map((_, i) => `($${i+1}, $${req.body.length + 1}) `).join(',')};`, [...req.body.map(row => JSON.stringify(row)), tag], (err, sqlRes) => {
       if (err) {
         reject(err);
         return;

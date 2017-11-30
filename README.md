@@ -4,7 +4,7 @@ A simple heroku app to serve your machine learning data to Meeshkan.
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/meeshkan/serve-machine-learning-data)
 
 ## How to use this
-Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending a `POST` request to `http://resonant-dunes.herokuapp.com/MEESHKAN_KEY` containing your data.  `MEESHKAN_KEY` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
+Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending a `POST` request to `http://resonant-dunes.herokuapp.com/i/MEESHKAN_KEY` containing your data.  `MEESHKAN_KEY` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
 
 
 | m2        | beach km      | price     |
@@ -19,13 +19,25 @@ You would post this:
 [[[70, 3], [270000]], [[80, 2], [510000]], [[90, 1], [980000]]]
 ```
 
-Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
+Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com/o?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
 
 ## After deployment
 When you deploy your Heroku app, you'll see that it will autogenerate a `MEESHKAN_KEY` config variable on startup.  To get the content of this variable so that you can make a POST request, click on `Manage App` after deploymnet succeeds and then on `Settings > Config Variables > Reveal Config Vars`.  You'll see the value of `MEESHKAN_KEY`.  If you ever change this value, make sure to reboot your app for the change to take effect!
 
-Note that to use the Meeshkan service, you *must* serve your data via HTTPS.  This means that, if you're serving from Heroku, you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
+Note that to use the Meeshkan service, we recommend that you serve your data via HTTPS.  This means that, if you're serving from Heroku, you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
 
 For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.
 
 If you want to deploy this to AWS Elastic Beanstalk, you can follow [this guide](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html). To see a working example that uses the MNIST dataset, try `curl "https://mnist.meeshkan.io?n=22&o=101"`.
+
+## Full API
+
+`/o?n=5&o=3` : Gets `5` rows with an offset of `3` in the dataset
+`/o?n=4&o=8&tag=true` : Gets `4` rows with an offset of `8` in the dataset and returns the tags
+`/o/FOO?n=100&o=0` : Gets `100` rows with an offset of `0` for all data rows tagged `FOO`. NB: All untagged rows are automatically given a tag of `DEFAULT.
+
+`/i/MEESHKAN_KEY` : POST request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.
+`/i/MEESHKAN_KEY/FOO` : POST request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This tags the data with the tag `FOO`.
+`/i/MEESHKAN_KEY` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key. Watch out, this deletes ALL the data!
+`/i/MEESHKAN_KEY/FOO` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This deletes all data with tag `FOO`.
+`/i/MEESHKAN_KEY/FOO/5` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This deletes all data with tag `FOO` and id `5`.

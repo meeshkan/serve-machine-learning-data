@@ -32,12 +32,15 @@ If you want to deploy this to AWS Elastic Beanstalk, you can follow [this guide]
 
 ## Full API
 
-`/o?n=5&o=3` : Gets `5` rows with an offset of `3` in the dataset
-`/o?n=4&o=8&tag=true` : Gets `4` rows with an offset of `8` in the dataset and returns the tags
-`/o/FOO?n=100&o=0` : Gets `100` rows with an offset of `0` for all data rows tagged `FOO`. NB: All untagged rows are automatically given a tag of `DEFAULT.
 
-`/i/MEESHKAN_KEY` : POST request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.
-`/i/MEESHKAN_KEY/FOO` : POST request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This tags the data with the tag `FOO`.
-`/i/MEESHKAN_KEY` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key. Watch out, this deletes ALL the data!
-`/i/MEESHKAN_KEY/FOO` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This deletes all data with tag `FOO`.
-`/i/MEESHKAN_KEY/FOO/5` : DELETE request where the data should be in the form described above and `MEESHKAN_KEY` is your Meeshkan key.  This deletes all data with tag `FOO` and id `5`.
+| path                     | method               | description                                                      |
+| ------------------------ |:--------------------:| ----------------------------------------------------------------:|
+| `/o?n=5&o=3`             | `GET`                | Gets `5` rows with an offset of `3` in the dataset               |
+| `/o?n=4&o=8&tag=true`    | `GET`                | Gets `4` rows with an offset of `8` in the dataset, returns tags |
+| `/o/FOO?n=100&o=0`       | `GET`                | Gets `100` rows with an offset of `0` for rows tagget `FOO`      |
+| `/i/MEESHKAN_KEY`        | `POST`               | Posts data                                                       |
+| `/i/MEESHKAN_KEY/FOO`    | `POST`               | Posts data and taggs it `FOO`                                    |
+| `/i/MEESHKAN_KEY`        | `DELETE`             | Deletes all data                                                 |
+| `/i/MEESHKAN_KEY/FOO`    | `DELETE`             | Deletes all data with tag `FOO`                                  |
+| `/i/MEESHKAN_KEY/FOO/5`  | `DELETE`             | Deletes all data with tag `FOO` and id `5`                       |
+

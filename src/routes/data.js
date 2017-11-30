@@ -5,7 +5,7 @@ import {
   Client
 } from 'pg';
 
-const makeTable = client => new Promise((resolve, reject) => client.query('CREATE TABLE IF NOT EXISTS data_to_serve (id SERIAL, data TEXT NOT NULL, tag VARACHAR(64) NOT NULL);', (err, res) => {
+const makeTable = client => new Promise((resolve, reject) => client.query('CREATE TABLE IF NOT EXISTS data_to_serve (id SERIAL, data TEXT NOT NULL, tag VARCHAR(64) NOT NULL);', (err, res) => {
   if (err) {
     reject(err);
     return;

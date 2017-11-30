@@ -34,7 +34,7 @@ If you want to deploy this to AWS Elastic Beanstalk, you can follow [this guide]
 
 
 | Path                     | Method               | Description                                                      |
-| ------------------------ |:---------------------| :----------------------------------------------------------------|
+| :----------------------- |:---------------------| :----------------------------------------------------------------|
 | `/o?n=5&o=3`             | `GET`                | Gets `5` rows with an offset of `3` in the dataset               |
 | `/o?n=4&o=8&tag=true`    | `GET`                | Gets `4` rows with an offset of `8` in the dataset, returns tags |
 | `/o/FOO?n=100&o=0`       | `GET`                | Gets `100` rows with an offset of `0` for rows tagget `FOO`      |

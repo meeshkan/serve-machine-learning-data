@@ -55,6 +55,7 @@ const makeDelete = async (req, res, next) => {
     await makeTable(client);
     console.log("DELETE", `DELETE FROM data_to_serve ${(tag && id) ? 'WHERE tag = $1 AND id = $2' : tag ? 'WHERE tag = $1' : ''};`, [tag, id].filter(_=>_));
     await new Promise((resolve, reject) => client.query(`DELETE FROM data_to_serve ${(tag && id) ? 'WHERE tag = $1 AND id = $2' : tag ? 'WHERE tag = $1' : ''};`, [tag, id].filter(_=>_), (err, sqlRes) => {
+      console.log("delete went through", err, sqlRes);
       if (err) {
         reject(err);
         return;

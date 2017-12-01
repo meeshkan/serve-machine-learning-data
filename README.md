@@ -21,6 +21,8 @@ You would post this:
 
 Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com/o?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
 
+Meeshkan makes no assumption about the dimensions of your features and targets.  Make sure that you serve data with the correct dimensions for your model.
+
 ## After deployment
 When you deploy your Heroku app, you'll see that it will autogenerate a `MEESHKAN_KEY` config variable on startup.  To get the content of this variable so that you can make a POST request, click on `Manage App` after deploymnet succeeds and then on `Settings > Config Variables > Reveal Config Vars`.  You'll see the value of `MEESHKAN_KEY`.  If you ever change this value, make sure to reboot your app for the change to take effect!
 

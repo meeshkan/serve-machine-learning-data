@@ -7,6 +7,7 @@ import data from './routes/data';
 
 const app = express();
 
+app.use(bodyParser({limit: '5mb'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())

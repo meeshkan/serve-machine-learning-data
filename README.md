@@ -26,7 +26,7 @@ Meeshkan makes no assumption about the dimensions of your features and targets. 
 ## After deployment
 When you deploy your Heroku app, you'll see that it will autogenerate a `MEESHKAN_KEY` config variable on startup.  To get the content of this variable so that you can make a POST request, click on `Manage App` after deploymnet succeeds and then on `Settings > Config Variables > Reveal Config Vars`.  You'll see the value of `MEESHKAN_KEY`.  If you ever change this value, make sure to reboot your app for the change to take effect!
 
-Note that to use the Meeshkan service, we recommend that you serve your data via HTTPS.  This means that, if you're serving from Heroku, you have to pony up [seven bucks a month](https://www.heroku.com/pricing) for Heroku's SSL.  This is a small price to pay for data security and a good habit to get into!  Plus, by paying for a basic Heroku subscription, your apps won't hybernate, so Meeshkan will run much faster.
+Note that to use the Meeshkan service, we recommend that you serve your data via HTTPS.  Apps deployed to Heroku come with HTTPS out of the box.
 
 For larger Machine Learning jobs, you will want to pay for a bigger storage plan.  Heroku's free tier for Postgre SQL allows for 10,000 rows.
 

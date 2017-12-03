@@ -4,22 +4,29 @@ A simple heroku app to serve your machine learning data to Meeshkan.
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/meeshkan/serve-machine-learning-data)
 
 ## How to use this
-Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending a `POST` request to `http://resonant-dunes.herokuapp.com/i/MEESHKAN_KEY` containing your data.  `MEESHKAN_KEY` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
+Assuming that you call your app `resonant-dunes`, you can populate the dataset by sending `POST` requests to `http://resonant-dunes.herokuapp.com/i/MEESHKAN_KEY` with your data.  Split your data into whatever chunks you would like.  `MEESHKAN_KEY` is, as you might guess, your Meeshkan key.  See our note below about how to retrieve your key. The data should be formated as a group of rows, each of which is a pair of X (feature) and Y (target) values. For example, assuming that you are learning housing prices based on square meters and proximity to a beach in kilometers, and your data looked like this:
 
 
-| m2        | beach km      | price     |
-| --------- |:-------------:| ---------:|
-| 70        | 3             | 270 000 € |
-| 80        | 2             | 510 000 € |
-| 90        | 1             | 980 000 € |
+| m2        | beach km      | price       |
+| --------- |:-------------:| -----------:|
+| 70        | 4             | 270 000 €   |
+| 80        | 3             | 510 000 €   |
+| 90        | 2             | 980 000 €   |
+| 100       | 1             | 1 350 000 € |
 
 You would post this:
 
 ```
-[[[70, 3], [270000]], [[80, 2], [510000]], [[90, 1], [980000]]]
+[[[70, 4], [270000]], [[80, 3], [510000]]]
 ```
 
-Then, to get the data back, just ping `https://resonant-dunes.herokuapp.com/o?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
+and later, when you have more data or if you are splitting the data up into reasonably-sized chunks...
+
+```
+[[[90, 2], [980000]], [[100, 1], [1350000]]]
+```
+
+To get the data back, just ping `https://resonant-dunes.herokuapp.com/o?n=3&o=0` where `n` is the number of rows you want and `o` is the offset in the dataset.
 
 Meeshkan makes no assumption about the dimensions of your features and targets.  Make sure that you serve data with the correct dimensions for your model.
 
